@@ -8,8 +8,7 @@ int main()
 {
     POS * pPos = new POS;
 
-    pPos->x = 100.0;
-    pPos->y = 200.0;
+    pPos->setPos(100.0, 200.0);
 
     pPos->print();
     
