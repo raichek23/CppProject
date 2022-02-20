@@ -4,6 +4,13 @@
 #include "POS.h"
 #include "Human.h"
 
+// 参照渡し 引数:参照変数(=エイリアス)
+void funcB(short & refnum)
+{
+    // 参照変数の書き換え
+    refnum = 80;
+}
+
 int main()
 {
     POS * pPos = new POS;
@@ -28,6 +35,12 @@ int main()
         pArray[i] = i;
         printf("pArray[%d]:%d\n", i, i);
     }
+
+    // 参照渡し
+    short num = 50;
+    printf("num:%d\n", num);
+    funcB(num);
+    printf("num:%d\n", num);
 
     delete pNum1;
     delete pNum2;
