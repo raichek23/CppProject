@@ -5,16 +5,16 @@ FileLogger::FileLogger()
     : m_FilePath("")
     , m_Stream()
 {
-    // Nothing to do
+    // NOP
 }
 
 /* コンストラクタ */
 FileLogger::FileLogger(const std::string& file_path)
     : m_FilePath(file_path)
-    , m_Stream
+    , m_Stream()
 {
     // ファイルオープン
-    this->Open(file_path)
+    this->Open(file_path);
 }
 
 /* デストラクタ */

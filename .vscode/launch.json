@@ -1,7 +1,14 @@
 {
   "version": "0.2.0",
   "configurations": [
-  
+    {
+      "type": "gdb",
+      "request": "launch",
+      "name": "Launch Program",
+      "target": "/workspace/CppProject/build/Debug/outDebug",
+      "cwd": "${workspaceRoot}",
+      "valuesFormatting": "parseText"
+    },
     {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",

@@ -1,7 +1,7 @@
 #pragma once
 #include <fstream>
 
-class File Logger
+class FileLogger
 {
 public:
     FileLogger();

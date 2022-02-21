@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "POS.h"
 #include "Human.h"
+#include "Logger.h"
 
 // 参照渡し 引数:参照変数(=エイリアス)
 void funcB(short & refnum)
@@ -13,6 +14,8 @@ void funcB(short & refnum)
 
 int main()
 {
+    Logger::Info("Start!!!");
+
     POS * pPos = new POS;
 
     pPos->setPos(100.0, 200.0);
@@ -46,5 +49,6 @@ int main()
     delete pNum2;
     delete pPos;
 
+    Logger::Info("Done!!!");
     return 0;
 }
