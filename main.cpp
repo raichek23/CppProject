@@ -3,6 +3,7 @@
 #include <list>
 #include <stdio.h>
 #include <stdlib.h>
+#include "Animal.h"
 #include "POS.h"
 #include "Human.h"
 #include "Logger.h"
@@ -53,6 +54,12 @@ int main()
     printf("num:0x%n\n", &num);
     funcB(num, LogList);
     printf("num:%d\n", num);
+
+    // 仮想関数
+    Dog dog;
+    Cat cat;
+    dog.say();
+    cat.say();
 
     LogList.push_back("== end ==");
     for (auto itr = LogList.begin(); itr != LogList.end(); ++itr) {
