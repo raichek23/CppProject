@@ -1,19 +1,27 @@
+#include <cwchar>
+#include <iostream>
+#include <list>
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include "POS.h"
 #include "Human.h"
 #include "Logger.h"
 
 // 参照渡し 引数:参照変数(=エイリアス)
-void funcB(short & refnum)
+void funcB(int & refnum, std::list<std::string>& refLogList)
 {
     // 参照変数の書き換え
     refnum = 80;
+    refLogList.push_back("== 参照渡し ==");
 }
 
 int main()
 {
+    // リスト
+    std::list<std::string> LogList;
+    LogList.push_back("== start ==");
+
+    // ログ出力
     Logger::Info("Start!!!");
 
     POS * pPos = new POS;
@@ -40,10 +48,16 @@ int main()
     }
 
     // 参照渡し
-    short num = 50;
+    int num = 50;
     printf("num:%d\n", num);
-    funcB(num);
+    printf("num:0x%n\n", &num);
+    funcB(num, LogList);
     printf("num:%d\n", num);
+
+    LogList.push_back("== end ==");
+    for (auto itr = LogList.begin(); itr != LogList.end(); ++itr) {
+        std::cout << *itr << std::endl;
+    }
 
     delete pNum1;
     delete pNum2;
