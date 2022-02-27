@@ -1,5 +1,6 @@
 #pragma once
 
+// 抽象クラス
 class Animal
 {
 public:
