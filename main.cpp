@@ -5,9 +5,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Animal.h"
+#include "Data.h"
 #include "POS.h"
 #include "Human.h"
 #include "Logger.h"
+#include "Parent.h"
 
 const int C_INIT_NUM = 50;
 
@@ -38,7 +40,7 @@ int main()
 
     // スタックメモリのクラスオブジェクト
     char name[] = "Taro Yamada";
-    Human human1(name, 20);
+    Human human1(name, 20, LogList);
 
     // 動的（ヒープ）メモリのクラスオブジェクト
     int * pNum1    = new int;
@@ -69,6 +71,12 @@ int main()
     std::cout << "num   :" << &num << std::endl;
     funcB(num, LogList);         // 引数に参照変数の定義
     std::cout << "num:"    << num  << std::endl;
+    
+    // メンバ変数に参照を渡す
+    Data data(10);
+    std::cout << "data.m_data:" << data.m_data << std::endl;
+    Parent parent(data);
+    parent.exec();
 
     // const
     const POS pos4;
